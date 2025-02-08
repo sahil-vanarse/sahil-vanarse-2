@@ -141,9 +141,9 @@ def home(request):
     room_count = rooms.count()
     room_messages = Message.objects.filter(
         Q(room__topic__name__icontains=q)
-    )[:3]
+    )[:20]
     users_count = User.objects.all().count()
-    users = User.objects.all().order_by('-id')[:10]  # Fetch the latest 10 users
+    users = User.objects.all().order_by('-id')  # Fetch the latest 10 users
 
     context = {
         'rooms': rooms,
